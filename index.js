@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *      Counter1 contains only Local Scope. Counter2's Scope is global.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *      Counter1. it is trying to access a variable outside of its Lexical Scope. It can also access the variable after the function has been returned. 
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ *      Counter1 would be condusive when you want the program to memorize its last answer, it binds a variable to to an execution context. 
  *
 */
 
@@ -56,11 +62,22 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+var scored = 0 
 
-    /*Code Here*/
-
+function inning(points){
+for (let i = 0; i < points; i++){
+  var pointsMade = Math.round(Math.random());
+  if (pointsMade === 1){
+    scored = scored + 1
+    console.log('1');
+  } else{
+    console.log('2');
+  }
 }
+return(scored/points)
+} 
+
+inning(9);
 
 /* Task 3: finalScore()
 
