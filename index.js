@@ -69,9 +69,12 @@ for (let i = 0; i < points; i++){
   var pointsMade = Math.round(Math.random());
   if (pointsMade === 1){
     scored = scored + 1
-    console.log('1');
+    console.log(1);
+  } else if (pointsMade === 2){
+      scored = scored + 1
+      console.log(2);
   } else{
-    console.log('2');
+    console.log(0);
   }
 }
 return(scored/points)
@@ -81,7 +84,8 @@ inning(9);
 
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
+Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of 
+the game in the form of an object.
 
 For example, 
 
