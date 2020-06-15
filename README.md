@@ -42,6 +42,10 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  A closure happens when a function is placed within another function with the inner most function being the closure. 
+  Closures also have access to variables in its outer functions.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+    line 53, because it is contained within another function. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  The name is always the same and the Roll Number changes. 
+
 c. What is the lexical scope of `newRoll`? 
+
+  The function above it
 
 ### Task 2c - Exit Ticket
 
