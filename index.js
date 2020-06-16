@@ -28,9 +28,17 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *      counter1 is blocked scoped. counter2 is globally scoped.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *      Counter1. it would access a variable outside of its Lexical Scope. It can also access the variable after the function has been returned. 
+ *      it also contains a function within a function thus creating a closure
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ *      Counter1 would be condusive when you want the program to memorize its last answer, it binds a variable to to an execution context. Counter2 
+ * has a variable that can be called from anywhere within the code.
  *
 */
 
@@ -56,15 +64,16 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+  return Math.floor(Math.random()*3);
 
 }
 
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
+Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of 
+the game in the form of an object.
 
 For example, 
 
@@ -76,11 +85,17 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(totalInning){
+  
+  let score = {Home:0,Away:0}
+  for(let i = 0; i<totalInning;i++){
+    score.Home += inning();
+    score.Away = score.Away+inning()
+   /*  console.log(score);  */
+  }   
+ return score;
 }
+ console.log(finalScore(9))
 
 /* Task 4: 
 
@@ -103,8 +118,17 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(func,number) {
+  
+  let team1 = 0;
+  let team2 = 0;
+  for(let i = 1; i<=number;i++){
+    team1 += func();
+    team2+=func();
+   console.log(`Inning # ${i} : ${team1} - ${team2}`);
+  }   
+ return `Final Score: ${team1} - ${team2}`;
 }
+console.log(scoreboard(inning,9));
 
 
